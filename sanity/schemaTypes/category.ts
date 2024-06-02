@@ -1,10 +1,12 @@
-export default{
+export default {
     name: 'category',
     type: 'document',
-    titlw: 'categories',
-    fields:[{
+    title: 'Categories',
+    fields: [
+      {
         name: 'name',
-        title:'Name of Category',
-        type:'string',
-    }]
-}
+        title: 'Name of Category',
+        type: 'string',
+      },
+    ],
+  }
