@@ -2,13 +2,22 @@ import Image from "next/image";
 import { client, urlFor } from "../lib/sanity";
 import Link from "next/link";
 
+
+
+
 async function getData() {
   const query = "*[_type == 'heroImage'][0]";
 
-  const data = await client.fetch(query);
-
-  return data;
+  try {
+    const data = await client.fetch(query);
+    console.log("Fetched data:", data);
+    return data;
+  } catch (error) {
+    console.error("Error fetching hero image data:", error);
+    return null;
+  }
 }
+
 
 export default async function Hero() {
   const data = await getData();
@@ -27,43 +36,29 @@ export default async function Hero() {
 
         <div className="mb-12 flex w-full md:mb-16 lg:w-2/3">
           <div className="relative left-12 top-12 z-10 -ml-12 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:left-16 md:top-16 lg:ml-0">
-          {
-            data && data.image1 ? (
-              <div>
-                <div className='absolute top-0 left-0 h-[95vh] w-screen'>
-                  <Image
-                    src={urlFor(data.image1).url()}
-                    alt="Great Photo"
-                    layout="fill"
-                    priority
-                  />
-                </div>
-              </div>
+            {data && data.image1 ? (
+              <Image
+                src={urlFor(data.image1).url()}
+                alt="Great Photo"
+                className="h-full w-full object-cover object-center"
+                priority
+                width={500}
+                height={500}
+              />
             ) : (
               <div>There are no images</div>
-            )
-          }
-
+            )}
           </div>
 
           <div className="overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-          {
-            data && data.image2 ? (
-              <div>
-                <div className='absolute top-0 left-0 h-[95vh] w-screen'>
-                  <Image
-                    src={urlFor(data.image2).url()}
-                    alt="Great Photo"
-                    layout="fill"
-                    priority
-                  />
-                </div>
-              </div>
-            ) : (
-              <div>There are no images</div>
-            )
-          }
-
+            {/* <Image
+              src={urlFor(data.image2).url()}
+              alt="Great Photo"
+              className="h-full w-full object-cover object-center"
+              width={500}
+              height={500}
+              priority
+            /> */}
           </div>
         </div>
       </div>
@@ -71,22 +66,22 @@ export default async function Hero() {
       <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
         <div className="flex h-12 w-64 divide-x overflow-hidden rounded-lg border">
           <Link
-            href="/Men"
+            href="/eink"
             className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:bg-gray-100 active:bg-gray-200"
           >
-            Men
+            E-Ink
           </Link>
           <Link
-            href="/Women"
+            href="/coloured"
             className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:bg-gray-100 active:bg-gray-200"
           >
-            Women
+            Coloured
           </Link>
           <Link
-            href="/Teens"
+            href="/robot"
             className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:bg-gray-100 active:bg-gray-200"
           >
-            Teens
+            Robot
           </Link>
         </div>
       </div>

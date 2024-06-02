@@ -17,3 +17,14 @@ export interface simplifiedProduct {
     description: string;
     price_id: string;
   }
+
+ export interface HeroImageData {
+    image1?: {
+      _type: string;
+      asset: {
+        _ref: string;
+        _type: string;
+      };
+    };
+  }
+  
