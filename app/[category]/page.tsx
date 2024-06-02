@@ -4,19 +4,24 @@ import { client } from "../lib/sanity";
 import Image from "next/image";
 
 async function getData(category: string) {
-  const query = `*[_type == "product" && category->name == "${category}"] {
-        _id,
-          "imageUrl": images[0].asset->url,
-          price,
-          name,
-          "slug": slug.current,
-          "categoryName": category->name
-      }`;
-
-  const data = await client.fetch(query);
-
-  return data;
-}
+    const query = `*[_type == "product" && category->name == $category] {
+      _id,
+      "imageUrl": images[0].asset->url,
+      price,
+      name,
+      "slug": slug.current,
+      "categoryName": category->name
+    }`;
+  
+    const params = { category };
+    console.log("Query:", query);
+    console.log("Params:", params);
+  
+    const data = await client.fetch(query, params);
+    console.log("Fetched data:", data); // Log the fetched data for debugging
+    return data;
+  }
+  
 
 export const dynamic = "force-dynamic";
 
