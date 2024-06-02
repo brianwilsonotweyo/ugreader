@@ -1,17 +1,17 @@
-import { title } from "process";
-
-export default{
-    name:'heroImage',
-    type:'document',
-    title:'Two Hero Images',
-    fields:[{
+export default {
+    name: 'heroImage',
+    type: 'document',
+    title: 'Two Hero Images',
+    fields: [
+      {
         name: 'image1',
         type: 'image',
-        title:'First Image',
-    },{
-    name: 'image2',
-    type:'image',
-    tile: 'Second Image'
-    }
-]
-}
+        title: 'First Image',
+      },
+      {
+        name: 'image2',
+        type: 'image',
+        title: 'Second Image',
+      },
+    ],
+  }
