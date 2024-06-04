@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-// import { useShoppingCart } from "use-shopping-cart";
 import { urlFor } from "../lib/sanity";
 import { ProductCart } from "./AddToBag";
 
@@ -12,29 +11,31 @@ export default function CheckoutNow({
   name,
   price,
   price_id,
+  slug,
 }: ProductCart) {
-//   const { checkoutSingleItem } = useShoppingCart();
 
-  function buyNow(priceId: string) {
-    // checkoutSingleItem(priceId);
+  function handleWhatsAppMessage() {
+    const product = {
+      name: name,
+      description: description,
+      price: price,
+      currency: currency,
+      image: urlFor(image).url(),
+      price_id: price_id,
+      slug: slug,
+    };
+    const message = `Hello! I'd like to learn more about the following product:\n\n*Product Name*: ${product.name}\n*Price*: ${product.price} ${product.currency}\n\n*Product URL*: https://3000-libraula-ugreader-dxkvd9150sx.ws-eu114.gitpod.io/product/${product.slug}`;
+    const phoneNumber = "+256764725740";
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, '_blank');
   }
 
-  const product = {
-    name: name,
-    description: description,
-    price: price,
-    currency: currency,
-    image: urlFor(image).url(),
-    price_id: price_id,
-  };
   return (
     <Button
       variant="outline"
-      onClick={() => {
-        buyNow(product.price_id);
-      }}
+      onClick={handleWhatsAppMessage}
     >
-      Checkout Now
+      Learn more
     </Button>
   );
 }

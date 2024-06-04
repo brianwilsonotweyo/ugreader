@@ -90,6 +90,7 @@ export default async function ProductPge({
                 price={data.price}
                 key={data._id}
                 price_id={data.price_id}
+                slug={data.slug} 
               />
               <CheckoutNow
                 currency="USD"
@@ -99,6 +100,7 @@ export default async function ProductPge({
                 price={data.price}
                 key={data._id}
                 price_id={data.price_id}
+                slug={data.slug} 
               />
             </div>
 
