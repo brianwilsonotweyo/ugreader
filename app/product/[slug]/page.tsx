@@ -64,10 +64,10 @@ export default async function ProductPge({
             <div className="mb-4">
               <div className="flex items-end gap-2">
                 <span className="text-xl font-bold text-gray-800 md:text-2xl">
-                  ${data.price}
+                  UGX {data.price}
                 </span>
                 <span className="mb-0.5 text-red-500 line-through">
-                  ${data.price + 30}
+                  UGX {data.price + 50000}
                 </span>
               </div>
 
@@ -83,7 +83,7 @@ export default async function ProductPge({
 
             <div className="flex gap-2.5">
               <AddToBag
-                currency="USD"
+                currency="UGX"
                 description={data.description}
                 image={data.images[0]}
                 name={data.name}
@@ -93,7 +93,7 @@ export default async function ProductPge({
                 slug={data.slug} 
               />
               <CheckoutNow
-                currency="USD"
+                currency="UGX"
                 description={data.description}
                 image={data.images[0]}
                 name={data.name}
