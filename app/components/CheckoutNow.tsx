@@ -24,7 +24,7 @@ export default function CheckoutNow({
       price_id: price_id,
       slug: slug,
     };
-    const message = `Hello! I'd like to learn more about the following product:\n\n*Product Name*: ${product.name}\n*Price*: ${product.price} ${product.currency}\n\n*Product URL*: https://3000-libraula-ugreader-dxkvd9150sx.ws-eu114.gitpod.io/product/${product.slug}`;
+    const message = `Hello! I'd like to learn more about the following product:\n\n*Product Name*: ${product.name}\n*Price*: ${product.price} ${product.currency}\n\n*Product URL*: https://ugreader-5b2m.onrender.com/product/${product.slug}`;
     const phoneNumber = "+256764725740";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
