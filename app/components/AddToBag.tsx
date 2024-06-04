@@ -33,7 +33,7 @@ export default function AddToBag({
   };
 
   const handleWhatsAppMessage = () => {
-    const message = `*Product Name*: ${product.name}\n*Price*: ${product.price} ${product.currency}\n*Description*: ${product.description}\n*Product URL*: https://ugreader-5b2m.onrender.com/product/${product.slug}`;
+    const message = `*Product Name*: ${product.name}\n*Price*: ${product.price} ${product.currency}\n*Description*: ${product.description}\n*Product URL*: https://www.ugreader.com/product/${product.slug}`;
     const phoneNumber = "+256764725740";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
