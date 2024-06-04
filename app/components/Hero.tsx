@@ -10,10 +10,10 @@ async function getData() {
 
   try {
     const data = await client.fetch(query);
-    console.log("Fetched data:", data);
+    // console.log("Fetched data:", data);
     return data;
   } catch (error) {
-    console.error("Error fetching hero image data:", error);
+    // console.error("Error fetching hero image data:", error);
     return null;
   }
 }

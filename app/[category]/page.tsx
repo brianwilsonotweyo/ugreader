@@ -14,11 +14,11 @@ async function getData(category: string) {
     }`;
   
     const params = { category };
-    console.log("Query:", query);
-    console.log("Params:", params);
+    // console.log("Query:", query);
+    // console.log("Params:", params);
   
     const data = await client.fetch(query, params);
-    console.log("Fetched data:", data); // Log the fetched data for debugging
+    // console.log("Fetched data:", data); // Log the fetched data for debugging
     return data;
   }
   
